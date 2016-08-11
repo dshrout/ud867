@@ -2,13 +2,17 @@ package com.udacity.gradle.builditbigger;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.dshrout.fungi.JokeSmith;
+
 
 public class MainActivity extends ActionBarActivity {
+    public JokeSmith mJokeSmith = new JokeSmith();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +44,13 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void tellJoke(View view){
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        Toast joke = Toast.makeText(this, mJokeSmith.getJoke().Joke, Toast.LENGTH_LONG);
+        joke.setGravity(Gravity.CENTER, 0, 0);
+        joke.show();
+
+        Toast punchLine = Toast.makeText(this, mJokeSmith.getJoke().PunchLine, Toast.LENGTH_LONG);
+        punchLine.setGravity(Gravity.CENTER, 0, 0);
+        punchLine.show();
     }
 
 
