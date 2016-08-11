@@ -9,6 +9,21 @@ from the scope in which they're declared.
 
 task groovy << {}
 
+
+/* globals are re-evaluated each time a closure is executed */
+def build = 1;
+def getVersion = {
+    def version = "Version 1.3." + build
+    println(version)
+}
+
+getVersion()
+build = 2;
+getVersion()
+build = 3;
+getVersion()
+
+
 def foo = "One million dollars"
 def myClosure = {
     println "Hello from a closure"
