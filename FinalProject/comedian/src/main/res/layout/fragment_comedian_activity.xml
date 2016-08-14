@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dshrout.comedian.ComedianActivityFragment"
+    android:id="@+id/fragment_comedian_container"
+    android:orientation="vertical" >
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/comedian_joke"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="@string/hello_blank_fragment" />
+
+    <TextView
+        android:id="@+id/comedian_punchline"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="@string/hello_blank_fragment" />
+</LinearLayout>
