@@ -24,8 +24,8 @@ public class ComedianActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_comedian_activity, container, false);
-        ((TextView)view.findViewById(R.id.comedian_joke)).setText(getArguments().getString(ComedianActivity.JOKE));
-        ((TextView)view.findViewById(R.id.comedian_punchline)).setText(getArguments().getString(ComedianActivity.PUNCH_LINE));
+        ((TextView)view.findViewById(R.id.comedian_joke)).setText(R.string.string_joke);
+        ((TextView)view.findViewById(R.id.comedian_punchline)).setText(getArguments().getString(ComedianActivity.ANSWER));
 
         return view;
     }

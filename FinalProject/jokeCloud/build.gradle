@@ -29,12 +29,13 @@ dependencies {
 }
 
 appengine {
-  downloadSdk = true
-  appcfg {
-    oauth2 = true
-  }
-  endpoints {
-    getClientLibsOnBuild = true
-    getDiscoveryDocsOnBuild = true
-  }
+    downloadSdk = true
+        appcfg {
+        oauth2 = true
+    }
+    httpAddress = "10.155.53.47"
+    endpoints {
+        getClientLibsOnBuild = true
+        getDiscoveryDocsOnBuild = true
+    }
 }

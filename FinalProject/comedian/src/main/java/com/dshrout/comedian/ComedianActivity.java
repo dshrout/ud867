@@ -1,11 +1,10 @@
 package com.dshrout.comedian;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class ComedianActivity extends AppCompatActivity {
-    public static final String JOKE = "joke";
-    public static final String PUNCH_LINE = "punchline";
+    public static final String ANSWER = "answer";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +14,7 @@ public class ComedianActivity extends AppCompatActivity {
 
         if(savedInstanceState == null) {
             Bundle args = new Bundle();
-            args.putString(JOKE, getIntent().getStringExtra(JOKE));
-            args.putString(PUNCH_LINE, getIntent().getStringExtra(PUNCH_LINE));
+            args.putString(ANSWER, getIntent().getStringExtra(ANSWER));
 
             comedian = new ComedianActivityFragment();
             comedian.setArguments(args);
