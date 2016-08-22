@@ -33,4 +33,12 @@ public class JokeApi {
         return response;
     }
 
+    /** A simple endpoint method that takes a name and says Hi back */
+    @ApiMethod(name = "jokePlease")
+    public JokeData jokePlease() {
+        JokeData response = new JokeData();
+        response.setData("What do you call a smart blond?|A Golden Retriever!");
+
+        return response;
+    }
 }
