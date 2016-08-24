@@ -10,7 +10,6 @@ import com.dshrout.fungi.JokeSmith;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
-import com.google.api.server.spi.config.Named;
 
 import java.util.Random;
 
@@ -25,14 +24,6 @@ import java.util.Random;
   )
 )
 public class JokeApi {
-    /** A simple endpoint method that takes a name and says Hi back */
-    @ApiMethod(name = "sayHi")
-    public JokeData sayHi(@Named("name") String name) {
-        JokeData response = new JokeData();
-        response.setData("Hi, " + name);
-        return response;
-    }
-
     /** A simple endpoint method that returns a random answer to the eternal question: Why'd the chicken cross the road? */
     @ApiMethod(name = "jokePlease")
     public JokeData jokePlease() {
