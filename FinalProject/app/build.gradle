@@ -30,9 +30,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':comedian')
-    // Added for AdMob
     compile project(path: ':jokeCloud', configuration: 'android-endpoints')
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.google.android.gms:play-services:9.2.1'
-    compile 'com.android.support:support-v4:23.4.0'
+    // Added for AdMob
+    freeCompile 'com.android.support:appcompat-v7:23.4.0'
+    freeCompile 'com.google.android.gms:play-services:9.2.1'
+    freeCompile 'com.android.support:support-v4:23.4.0'
 }
