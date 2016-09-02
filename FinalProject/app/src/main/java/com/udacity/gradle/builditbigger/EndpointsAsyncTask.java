@@ -2,9 +2,10 @@ package com.udacity.gradle.builditbigger;
 
 import android.os.AsyncTask;
 
-import com.dshrout.jokecloud.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
+
+import com.dshrout.jokecloud.myApi.MyApi;
 
 import java.io.IOException;
 
