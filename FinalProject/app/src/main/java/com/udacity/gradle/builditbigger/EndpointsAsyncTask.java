@@ -5,17 +5,15 @@ import android.os.AsyncTask;
 import com.dshrout.jokecloud.myApi.MyApi;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
-import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
-import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
 
 class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
-    private MainActivity mActivity;
+    private EndpointListener mListener;
 
-    public EndpointsAsyncTask(MainActivity activity) {
-        mActivity = activity;
+    public EndpointsAsyncTask(EndpointListener listener) {
+        mListener = listener;
     }
 
     @Override
@@ -23,18 +21,6 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
                                              .setRootUrl("https://jokeengine-122668.appspot.com/_ah/api/");
-            // options for running against local devappserver
-            // - 10.0.2.2 is localhost's IP address in Android emulator
-            // - turn off compression when running against local devappserver
-//                    .setRootUrl("http://192.168.1.156:8080/_ah/api/")
-//                    .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-//                        @Override
-//                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
-//                            abstractGoogleClientRequest.setDisableGZipContent(true);
-//                        }
-//                    });
-            // end options for devappserver
-
             myApiService = builder.build();
         }
 
@@ -47,6 +33,6 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        mActivity.tellJoke(result);
+        mListener.jokesReady(result);
     }
 }

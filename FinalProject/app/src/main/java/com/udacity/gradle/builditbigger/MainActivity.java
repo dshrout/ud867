@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.dshrout.comedian.ComedianActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EndpointListener {
     private static final String ANSWER = "answer";
 
     @Override
@@ -17,23 +17,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getJoke(View view){
-
         new EndpointsAsyncTask(this).execute();
-
-//        Toast joke = Toast.makeText(this, mJokeSmith.getJoke().Joke, Toast.LENGTH_LONG);
-//        joke.setGravity(Gravity.CENTER, 0, 0);
-//        joke.show();
-//
-//        Toast punchLine = Toast.makeText(this, mJokeSmith.getJoke().PunchLine, Toast.LENGTH_LONG);
-//        punchLine.setGravity(Gravity.CENTER, 0, 0);
-//        punchLine.show();
     }
 
-    public void tellJoke(String answer) {
+    @Override
+    public void jokesReady(String answer) {
         Intent intent = new Intent(this, ComedianActivity.class);
         intent.putExtra(ANSWER, answer);
         startActivity(intent);
     }
-
 
 }
